@@ -1,0 +1,72 @@
+import { AwardIcon, CheckCircle2, CheckIcon, ClockIcon } from "lucide-react";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { services } from "@/data/services";
+
+export default function Services() {
+  return (
+    <section
+      id="services"
+      className="flex flex-col justify-center items-center gap-6 text-center py-8 md:py-16"
+    >
+      <h2 className="text-5xl font-semibold mb-3">
+        Transform Your <span className="text-green-700">Outdoor Space</span>
+      </h2>
+      <p className="lg:w-1/2 text-lg text-muted-foreground">
+        From stunning driveways to complete landscape transformations, we
+        deliver premium results that enhance your property's value and beauty.
+      </p>
+
+      <div className="flex max items-center gap-10 mb-3">
+        <div className="flex items-center gap-1">
+          <AwardIcon size={20} className="text-green-600" />
+          <span className="font-semibold">Premium Materials</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <ClockIcon size={20} className="text-green-600" />
+          <span className="font-semibold">Timely Delivery</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <CheckCircle2 size={20} className="text-green-600" />
+          <span className="font-semibold">Guaranteed Work</span>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-3 justify-between">
+        {services.map((service) => (
+          <div
+            key={service.id}
+            className="w-full h-auto flex flex-col gap-2 p-2 justify-between items-start text-start border border-gray-300 rounded-2xl"
+          >
+            <div className="w-full mb-3">
+              <Image
+                src={service.imageUrl}
+                alt={"Services"}
+                width={500}
+                height={500}
+                className="rounded-2xl"
+              />
+            </div>
+            <h3 className="text-2xl font-semibold">{service.title}</h3>
+            <p>{service.description}</p>
+            <div className="flex flex-col items-start gap-1 my-2">
+              {service.items.map((item, index) => (
+                <div key={index} className="flex gap-1 items-center">
+                  <CheckIcon className="text-green-500" />{" "}
+                  <span className="font-semibold">{item.title}</span>
+                  <span className="text-gray-500">{item.description}</span>
+                </div>
+              ))}
+            </div>
+
+            <Button variant={"secondary"} className="w-full">
+              Learn More
+            </Button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
