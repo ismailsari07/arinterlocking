@@ -64,8 +64,8 @@ export default function Page() {
 
           <motion.div variants={item} className="flex gap-2 items-center">
             <MailboxIcon className="size-6" />
-            <a href="mailto:info@arinterlocking.ca">
-              info@arinterlocking.ca
+            <a href="mailto:info@arinterlocklandscape.ca">
+              info@arinterlocklandscape.ca
             </a>
           </motion.div>
 

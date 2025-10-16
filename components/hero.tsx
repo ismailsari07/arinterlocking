@@ -20,8 +20,32 @@ import {
 } from "@/components/ui/popover";
 import React from "react";
 import { Textarea } from "./ui/textarea";
+import { motion } from "motion/react";
+import type { Variants } from "motion";
+import QuoteForm from "./QuoteForm";
 
 export default function Hero() {
+  const container = {
+    hidden: { opacity: 1 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      // bazen ease'in string tipi eski sürümlerde şikayet eder:
+      // istersen alttaki satırı cubic-bezier'e çevir:
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+
+      // veya geçici: ease: "easeOut" as any
+    },
+  };
+
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
   const services = [
@@ -47,119 +71,37 @@ export default function Hero() {
   ];
 
   return (
-    <header className="container w-full flex flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32">
+
+    <motion.header 
+      className="container w-full flex flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="flex max-md:flex-col justify-center items-center gap-6 text-start">
         <div className="w-full md:w-1/2 flex flex-col items-start gap-3">
-          <h1 className="text-7xl font-bold">
+          <motion.h1 variants={item} className="text-7xl font-bold">
             Precision <br /> Interlocking & <br /> Landscaping, <br />
             <span className="text-green-600">Built to Last</span>
-          </h1>
-          <p className="text-gray-400 text-xl">
+          </motion.h1>
+          <motion.p variants={item} className="text-gray-400 text-xl">
             New projects and repairs with premium materials and expert
             craftsmanship across GTA.
-          </p>
-          <Button variant={"secondary"} size={"lg"}>
-            Call Now
-          </Button>
+          </motion.p>
+          <motion.div variants={item} className="w-full md:w-auto">
+            <a href="tel:+16477097219" aria-label="Call (647) 709-7219">
+              <Button variant={"secondary"} size={"lg"}>
+                Call Now 
+              </Button>
+            </a>
+          </motion.div>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col gap-4 p-4 border border-gray-200 rounded-xl">
-          <div className="mb-2">
-            <h3 className="text-2xl font-semibold text-start">
-              Get your Free Quote
-            </h3>
-            <p className="text-sm text-muted-foreground text-start">
-              Tell us about your project and we'll provide a detailed estimate
-            </p>
-          </div>
-          {/* Full Name */}
-          <div className="grid w-full items-center gap-2">
-            <Label htmlFor="name">Full Name</Label>
-            <Input type="text" id="name" placeholder="Name" />
-          </div>
-
-          {/* Email */}
-          <div className="grid w-full items-center gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input type="email" id="email" placeholder="Email" />
-          </div>
-
-          {/* Phone */}
-          <div className="grid w-full items-center gap-2">
-            <Label htmlFor="phone">Phone</Label>
-            <Input type="tel" id="phone" placeholder="Phone Number" />
-          </div>
-
-          {/* Services section begins */}
-          <div className="grid w-full items-center gap-2">
-            <Label htmlFor="services">Services</Label>
-            <Popover open={open} onOpenChange={setOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={open}
-                  className="justify-between"
-                >
-                  {value
-                    ? services.find((service) => service.value === value)?.label
-                    : "Select service..."}
-                  <ChevronsUpDown className="opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="p-0">
-                <Command>
-                  <CommandInput
-                    placeholder="Search service..."
-                    className="h-9"
-                  />
-                  <CommandList>
-                    <CommandEmpty>No service found.</CommandEmpty>
-                    <CommandGroup>
-                      {services.map((service) => (
-                        <CommandItem
-                          key={service.value}
-                          value={service.value}
-                          onSelect={(currentValue) => {
-                            setValue(
-                              currentValue === value ? "" : currentValue,
-                            );
-                            setOpen(false);
-                          }}
-                        >
-                          {service.label}
-                          <Check
-                            className={cn(
-                              "ml-auto",
-                              value === service.value
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
-                          />
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
-          </div>
-          {/* Services section ends */}
-
-          {/* About Section */}
-          <div className="grid w-full items-center gap-2">
-            <Label htmlFor="about">About Your Project</Label>
-            <Textarea id="about" placeholder="Tell us about your project..." />
-            <p className="text-muted-foreground text-sm">
-              Your message will be copied to the support team.
-            </p>
-          </div>
-
-          <Button variant={"default"} className="mt-2">
-            Submit
-          </Button>
-        </div>
+        <motion.div variants={item} className="w-full md:w-1/2 flex flex-col gap-4 p-4 border border-gray-200 rounded-xl">
+          <QuoteForm />
+        </motion.div>
       </div>
-      <div className="w-full h-auto">
+      <motion.div variants={item} className="w-full h-auto">
         <Image
           alt="Hero Image"
           src={"/hero.jpg"}
@@ -167,7 +109,7 @@ export default function Hero() {
           height={2600}
           className="rounded-2xl border-4 border-gray-300 object-cover w-full h-auto brightness-95"
         />
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   );
 }

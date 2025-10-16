@@ -30,17 +30,17 @@ export default function Footer() {
         <div className="flex flex-col gap-3 max-md:text-center">
           <div className="text-lg font-semibold">Services</div>
           {/* TODO: fix link*/}
-          <Link href={"/services/residential-moving"} className="text-gray-400">
+          <p>
             Landscaping
-          </Link>
+            </p>
           {/* TODO: fix link*/}
-          <Link href={"/services/commercial-moving"} className="text-gray-400">
-            Specialty Services
-          </Link>
+          <p>
+          Interlocking
+</p>
           {/* TODO: fix link*/}
-          <Link href={"/services/storage-service"} className="text-gray-400">
+          <p>
             Hardscaping
-          </Link>
+            </p>
         </div>
         <div className="flex flex-col gap-3 max-md:text-center">
           <div className="text-lg font-semibold">Company</div>
@@ -50,7 +50,7 @@ export default function Footer() {
           <Link href={"/contact"} className="text-gray-400">
             Contact
           </Link>
-          <Link href={"/services"} className="text-gray-400">
+          <Link href={"/service"} className="text-gray-400">
             Services
           </Link>
         </div>
@@ -58,14 +58,11 @@ export default function Footer() {
           <div className="text-lg font-semibold">Company</div>
           {/* TODO: fix contact information*/}
           <div className="text-gray-400">
-            <a href="tel:+18668626060">866 862 6060</a>
+            <a href="tel:+16477097219" aria-label="Call (647) 709-7219">(647) 709-7219</a>
           </div>
           <div className="text-gray-400">
-            <a href="tel:+16476002353">647 600 2353</a>
-          </div>
-          <div className="text-gray-400">
-            <a href="mailto:info@metromovingstorage.ca">
-              info@metromovingstorage.ca
+            <a href="mailto:info@arinterlocklandscape.ca">
+              info@arinterlocklandscape.ca
             </a>
           </div>
         </div>

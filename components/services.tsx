@@ -33,7 +33,7 @@ export default function Services() {
             </div>
             <h3 className="text-2xl font-semibold">{service.title}</h3>
             <p>{service.description}</p>
-            <div className="flex flex-col items-start gap-1 my-2">
+            <div className="flex flex-col items-start gap-1 mt-2">
               {service.items.map((item, index) => (
                 <div key={index} className="flex gap-1 items-center">
                   <CheckIcon className="text-green-500" />{" "}
@@ -42,10 +42,6 @@ export default function Services() {
                 </div>
               ))}
             </div>
-
-            <Button variant={"secondary"} className="w-full">
-              Learn More
-            </Button>
           </div>
         ))}
       </div>

@@ -77,9 +77,8 @@ export default function Gallery() {
                 className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 py-28 px-4 md:px-40 mx-auto"
             >
                 {[3, 4, 5, 8, 10, 1, 2, 7, 9, 11, 6, 13, 14, 15, 18, 17, 20, 21, 19, 12, 16].map((id) => (
-                    <motion.div
+                    <div
                         key={id}
-                        variants={item}
                         className="mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow"
                     >
                             <Image
@@ -91,7 +90,7 @@ export default function Gallery() {
                                 className="w-full h-auto rounded-xl shadow-lg border-2 border-gray-300 cursor-pointer hover:opacity-90 transition-opacity"
                                 onClick={() => handleImageClick(id)}
                             />
-                    </motion.div>
+                    </div>
                 ))}
             </motion.div>
 

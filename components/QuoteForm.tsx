@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
+import { Textarea } from "./ui/textarea";
+import emailjs from "@emailjs/browser";
 
 export default function QuoteForm() {
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -20,26 +22,25 @@ export default function QuoteForm() {
       fullname: fd.get("fullname"),
       email: fd.get("email"),
       phoneNumber: fd.get("phoneNumber"),
-      movingFrom: fd.get("movingFrom"),
-      movingTo: fd.get("movingTo"),
       date: fd.get("date"),
-      sizeOfMove: fd.get("sizeOfMove"),
+      note: fd.get("note")
     };
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      // Replace with your actual EmailJS service, template, and public key
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+      emailjs.init({ publicKey });
+      await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, {
+        name: payload.fullname,
+        email: payload.email,
+        phone: payload.phoneNumber,
+        date: payload.date,
+        note: payload.note
       });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data?.error || "Failed");
       setStatus({ ok: true, msg: "Email sent successfully!" });
-      formRef.current?.reset();
     } catch (err) {
       setStatus({ ok: false, msg: "Something went wrong." });
-    }
+    } 
   }
 
   return (
@@ -73,53 +74,17 @@ export default function QuoteForm() {
       </div>
 
       <div className="flex justify-between items-center gap-4">
-        {/* Moving From */}
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="from">Moving From</Label>
-          <Input
-            type="text"
-            name="movingFrom"
-            id="from"
-            placeholder="City/Province"
-          />
-        </div>
-
-        {/* Moving To */}
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="to">Moving To</Label>
-          <Input
-            type="text"
-            name="movingTo"
-            id="to"
-            placeholder="City/Province"
-          />
-        </div>
-      </div>
-
-      <div className="flex justify-between items-center gap-4">
         {/* Date */}
         <div className="grid w-full items-center gap-3">
           <Label htmlFor="date">Date</Label>
           <Input type="date" name="date" id="date" />
         </div>
+      </div>
 
-        {/* Size Of Move */}
-        <div className="grid w-full items-center gap-3">
-          <Label htmlFor="sizeOfMove">Size Of Move</Label>
-          <select
-            id="sizeOfMove"
-            name="sizeOfMove"
-            defaultValue=""
-            className="border rounded-md p-2"
-          >
-            <option value="" disabled>
-              Select Size...
-            </option>
-            <option value="1 Bedroom">1 Bedroom</option>
-            <option value="2 Bedroom">2 Bedroom</option>
-            <option value="3 Bedroom">3 Bedroom</option>
-          </select>
-        </div>
+      {/* Note */}
+      <div className="grid w-full items-center gap-3">
+        <Label htmlFor="note">Note</Label>
+        <Textarea name="note" id="note" placeholder="Type your note" />
       </div>
 
       {status && (

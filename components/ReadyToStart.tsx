@@ -1,5 +1,6 @@
 import { CalendarIcon, PhoneCallIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function ReadyToStart() {
   return (
@@ -13,12 +14,16 @@ export default function ReadyToStart() {
           the GTA trust AR Interlocking.
         </p>
         <div className="flex justify-center items-center gap-4">
-          <Button variant={"secondary"} size={"lg"}>
-            <CalendarIcon /> Get a Free Quote
-          </Button>
-          <Button variant={"secondary"} size={"lg"}>
-            <PhoneCallIcon /> Call Now
-          </Button>
+          <Link href="/contact">
+            <Button variant={"secondary"} size={"lg"}>
+              <CalendarIcon /> Get a Free Quote
+            </Button>
+          </Link>
+          <a href="tel:+16477097219" aria-label="Call (647) 709-7219">
+            <Button variant={"secondary"} size={"lg"}>
+              <PhoneCallIcon /> Call Now
+            </Button>
+          </a>
         </div>
       </div>
     </section>
