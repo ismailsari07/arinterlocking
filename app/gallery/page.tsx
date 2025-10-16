@@ -1,7 +1,7 @@
 'use client';
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
+import { motion } from "motion/react";
+import type { Variants } from "motion";
 import Image from "next/image";
 import Link from "next/link";
 import GalleryDialog from "@/components/GalleryDialog";
