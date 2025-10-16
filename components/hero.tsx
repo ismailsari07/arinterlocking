@@ -47,7 +47,7 @@ export default function Hero() {
   ];
 
   return (
-    <header className="w-full flex flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32">
+    <header className="container w-full flex flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32">
       <div className="flex max-md:flex-col justify-center items-center gap-6 text-start">
         <div className="w-full md:w-1/2 flex flex-col items-start gap-3">
           <h1 className="text-7xl font-bold">

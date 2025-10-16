@@ -1,14 +1,13 @@
-import { AwardIcon, CheckCircle2, CheckIcon, ClockIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section
-      id="services"
-      className="flex flex-col justify-center items-center gap-6 text-center py-8 md:py-16"
-    >
+    
+        <section id="services" className="bg-gray-50">
+        <div className="container flex flex-col justify-center items-center gap-6 text-center py-8 md:py-16">
       <h2 className="text-5xl font-semibold mb-3">
         Transform Your <span className="text-green-700">Outdoor Space</span>
       </h2>
@@ -16,23 +15,6 @@ export default function Services() {
         From stunning driveways to complete landscape transformations, we
         deliver premium results that enhance your property's value and beauty.
       </p>
-
-      <div className="flex max items-center gap-10 mb-3">
-        <div className="flex items-center gap-1">
-          <AwardIcon size={20} className="text-green-600" />
-          <span className="font-semibold">Premium Materials</span>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <ClockIcon size={20} className="text-green-600" />
-          <span className="font-semibold">Timely Delivery</span>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <CheckCircle2 size={20} className="text-green-600" />
-          <span className="font-semibold">Guaranteed Work</span>
-        </div>
-      </div>
 
       <div className="flex flex-col md:flex-row gap-3 justify-between">
         {services.map((service) => (
@@ -66,6 +48,7 @@ export default function Services() {
             </Button>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
