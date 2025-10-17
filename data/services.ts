@@ -20,10 +20,7 @@ export const services: ServiceBlock[] = [
     description: "Professional restoration and protective treatments",
     items: [
       { title: "Sealing", description: "Long-lasting protection" },
-      {
-        title: "Epoxy Floors",
-        description: "Premium garage",
-      },
+      { title: "Epoxy Floors", description: "Premium garage" },
       { title: "Stone Planters", description: "Elegant landscape features" },
       { title: "Natural Stones", description: "Timeless aesthetic appeal" },
     ],

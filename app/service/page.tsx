@@ -43,14 +43,16 @@ export default function Service() {
         </span>
         <p className="text-5xl text-gray-800 font-bold">Our Services</p>
         <p className="text-lg text-gray-500 max-md:text-center">
-          From elegant interlocking driveways to custom landscaping designs, we create
-          <br className="max-md:hidden" /> beautiful and functional outdoor spaces that last.
+          From elegant interlocking driveways to custom landscaping designs, we
+          create
+          <br className="max-md:hidden" /> beautiful and functional outdoor
+          spaces that last.
         </p>
       </motion.div>
 
       <motion.div
         variants={item}
-        className="flex flex-col gap-5 lg:text-center py-28 max-md:px-2"
+        className="flex flex-col gap-2 md:gap-5 lg:text-center py-28 max-md:px-2"
       >
         <p className="text-4xl text-gray-800 font-bold">
           Professional Landscaping & Hardscaping
@@ -63,7 +65,7 @@ export default function Service() {
           {/* Service 1 */}
           <motion.div
             variants={item}
-            className="w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
+            className="w-full md:w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
           >
             <div className="w-fit p-4 bg-stone-100 rounded-xl">
               <StoreIcon className="size-6 text-stone-800" />
@@ -101,14 +103,12 @@ export default function Service() {
           {/* Service 2 */}
           <motion.div
             variants={item}
-            className="w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
+            className="w-full md:w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
           >
             <div className="w-fit p-4 bg-green-100 rounded-xl">
               <ShoppingBagIcon className="size-6 text-green-800" />
             </div>
-            <h3 className="text-2xl font-semibold text-start">
-              Landscaping
-            </h3>
+            <h3 className="text-2xl font-semibold text-start">Landscaping</h3>
             <p className="text-gray-500 mb-6">
               Complete landscape design and maintenance services
             </p>
@@ -139,7 +139,7 @@ export default function Service() {
           {/* Service 3 */}
           <motion.div
             variants={item}
-            className="w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
+            className="w-full md:w-1/4 p-4 md:p-8 border-2 border-gray-300 rounded-xl shadow-xl"
           >
             <div className="w-fit p-4 bg-blue-100 rounded-xl">
               <HomeIcon className="size-6 text-blue-800" />

@@ -6,6 +6,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTrigger,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import Image from "next/image";
 
@@ -15,11 +16,16 @@ interface GalleryDialogProps {
   onClose: () => void;
 }
 
-export default function GalleryDialog({ imageId, isOpen, onClose }: GalleryDialogProps) {
+export default function GalleryDialog({
+  imageId,
+  isOpen,
+  onClose,
+}: GalleryDialogProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[90vw] max-h-[90vh]" showCloseButton>
         <DialogHeader>
+          <DialogTitle></DialogTitle>
           <DialogDescription className="w-full h-full">
             <Image
               src={`/gallery${imageId}.jpeg`}
@@ -35,3 +41,4 @@ export default function GalleryDialog({ imageId, isOpen, onClose }: GalleryDialo
     </Dialog>
   );
 }
+

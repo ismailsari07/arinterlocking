@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 pt-28 py-8 px-10 text-white">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-5 mb-18">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-5 mb-18">
         <div className="flex flex-col gap-4">
           <div className="text-xl font-semibold max-md:text-center">
             Ar Interlocking & Landscaping
@@ -29,18 +29,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-3 max-md:text-center">
           <div className="text-lg font-semibold">Services</div>
-          {/* TODO: fix link*/}
-          <p>
-            Landscaping
-            </p>
-          {/* TODO: fix link*/}
-          <p>
-          Interlocking
-</p>
-          {/* TODO: fix link*/}
-          <p>
-            Hardscaping
-            </p>
+          <p>Landscaping</p>
+          <p>Interlocking</p>
+          <p>Hardscaping</p>
         </div>
         <div className="flex flex-col gap-3 max-md:text-center">
           <div className="text-lg font-semibold">Company</div>
@@ -53,12 +44,16 @@ export default function Footer() {
           <Link href={"/service"} className="text-gray-400">
             Services
           </Link>
+          <Link href={"/gallery"} className="text-gray-400">
+            Gallery
+          </Link>
         </div>
         <div className="flex flex-col gap-3 max-md:text-center">
           <div className="text-lg font-semibold">Company</div>
-          {/* TODO: fix contact information*/}
           <div className="text-gray-400">
-            <a href="tel:+16477097219" aria-label="Call (647) 709-7219">(647) 709-7219</a>
+            <a href="tel:+16477097219" aria-label="Call (647) 709-7219">
+              (647) 709-7219
+            </a>
           </div>
           <div className="text-gray-400">
             <a href="mailto:info@arinterlocklandscape.ca">

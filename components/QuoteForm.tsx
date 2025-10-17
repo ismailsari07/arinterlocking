@@ -23,24 +23,28 @@ export default function QuoteForm() {
       email: fd.get("email"),
       phoneNumber: fd.get("phoneNumber"),
       date: fd.get("date"),
-      note: fd.get("note")
+      note: fd.get("note"),
     };
 
     try {
       // Replace with your actual EmailJS service, template, and public key
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
       emailjs.init({ publicKey });
-      await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, {
-        name: payload.fullname,
-        email: payload.email,
-        phone: payload.phoneNumber,
-        date: payload.date,
-        note: payload.note
-      });
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: payload.fullname,
+          email: payload.email,
+          phone: payload.phoneNumber,
+          date: payload.date,
+          note: payload.note,
+        },
+      );
       setStatus({ ok: true, msg: "Email sent successfully!" });
     } catch (err) {
       setStatus({ ok: false, msg: "Something went wrong." });
-    } 
+    }
   }
 
   return (

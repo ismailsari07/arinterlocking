@@ -60,9 +60,10 @@ export default function Page() {
           variants={item}
           className="md:w-1/2 text-lg text-gray-500 max-md:text-center"
         >
-          We are Greater Toronto Area's premier landscaping and hardscaping specialists,
-          delivering exceptional outdoor living spaces through expert design and 
-          installation of interlocking stone, patios, driveways, and custom stonework.
+          We are Greater Toronto Area's premier landscaping and hardscaping
+          specialists, delivering exceptional outdoor living spaces through
+          expert design and installation of interlocking stone, patios,
+          driveways, and custom stonework.
         </motion.p>
         <motion.div
           variants={item}
@@ -89,19 +90,21 @@ export default function Page() {
             Our Story
           </motion.h3>
           <motion.p variants={item} className="text-gray-700">
-            With years of experience in the Greater Toronto Area, AR Interlocking
-            began with a clear vision: to create stunning, durable outdoor spaces
-            that enhance both the beauty and value of our clients' properties.
-            What started as a specialized interlocking service has grown into a
-            comprehensive landscaping and hardscaping company.
+            With years of experience in the Greater Toronto Area, AR
+            Interlocking began with a clear vision: to create stunning, durable
+            outdoor spaces that enhance both the beauty and value of our
+            clients' properties. What started as a specialized interlocking
+            service has grown into a comprehensive landscaping and hardscaping
+            company.
           </motion.p>{" "}
           <br />
           <motion.p variants={item} className="text-gray-700">
-            We understood that homeowners needed more than just basic landscaping—they
-            needed a partner who could bring their outdoor dreams to life with
-            precision and artistry. Today, we've successfully completed thousands
-            of projects, from elegant driveways and patios to custom stone features
-            and complete outdoor living spaces.
+            We understood that homeowners needed more than just basic
+            landscaping—they needed a partner who could bring their outdoor
+            dreams to life with precision and artistry. Today, we've
+            successfully completed thousands of projects, from elegant driveways
+            and patios to custom stone features and complete outdoor living
+            spaces.
           </motion.p>{" "}
           <br />
           <motion.p variants={item} className="text-gray-700">
@@ -165,9 +168,10 @@ export default function Page() {
             Our Comprehensive Services
           </h3>
           <p className="text-lg text-gray-600 md:w-1/2">
-            From driveways to complete outdoor living spaces, we offer full-service
-            landscaping and hardscaping solutions. Our attention to detail and
-            commitment to quality ensures lasting beauty for your property.
+            From driveways to complete outdoor living spaces, we offer
+            full-service landscaping and hardscaping solutions. Our attention to
+            detail and commitment to quality ensures lasting beauty for your
+            property.
           </p>
         </div>
 

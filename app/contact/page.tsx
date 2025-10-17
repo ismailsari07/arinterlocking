@@ -46,8 +46,9 @@ export default function Page() {
           variants={item}
           className="md:w-1/2 text-lg text-gray-500 max-md:text-center"
         >
-          Ready to enhance your property with professional landscaping and hardscaping?
-          Contact our expert team for a free consultation and quote.
+          Ready to enhance your property with professional landscaping and
+          hardscaping? Contact our expert team for a free consultation and
+          quote.
         </motion.p>
       </div>
 
@@ -82,7 +83,9 @@ export default function Page() {
           variants={item}
           className="w-[95%] md:w-2/5 flex flex-col justify-between items-stretch gap-4 p-6 bg-gray-100 shadows-2xl shadow-slate-200 border-2 border-gray-200 rounded-2xl text-[#141327]"
         >
-          <h3 className="text-2xl font-bold mb-6">Request Your Free Estimate</h3>
+          <h3 className="text-2xl font-bold mb-6">
+            Request Your Free Estimate
+          </h3>
 
           <QuoteForm />
         </motion.div>
