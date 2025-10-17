@@ -33,7 +33,7 @@ export default function Services() {
               <p>{service.description}</p>
               <div className="flex flex-col items-start gap-1 mt-2">
                 {service.items.map((item, index) => (
-                  <div key={index} className="flex gap-1 items-center">
+                  <div key={index} className="flex gap-1 items-center text-sm">
                     <CheckIcon className="text-green-500" />{" "}
                     <span className="font-semibold">{item.title}</span>
                     <span className="text-gray-500">{item.description}</span>
