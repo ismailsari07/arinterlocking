@@ -55,6 +55,9 @@ export default function Hero() {
           variants={item}
           className="w-full md:w-1/2 flex flex-col gap-4 p-4 border border-gray-200 rounded-xl"
         >
+          <h3 className="text-2xl font-bold mb-6">
+            Request Your Free Estimate
+          </h3>
           <QuoteForm />
         </motion.div>
       </div>
